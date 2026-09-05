@@ -1,0 +1,34 @@
+;
+; DMG-007 Game Boy LCD PIO Capture Program
+; Samples 2-bit pixel data (DATA0, DATA1) on CL2 clock
+;
+.program dmg_capture
+
+.wrap_target
+    ; Wait for falling edge of CL2 (Clock)
+    wait 1 pin 2        ; Wait for CL2 HIGH (pin 2)
+    wait 0 pin 2        ; Wait for CL2 LOW (pin 2)
+    
+    ; Sample 2 data bits: DATA0 (pin 0) and DATA1 (pin 1)
+    in pins, 2          ; Shift 2 bits into ISR
+.wrap
+
+% c-sdk {
+static inline void dmg_capture_program_init(PIO pio, uint sm, uint offset, uint pin_data_base, uint pin_clock) {
+    pio_sm_config c = dmg_capture_program_get_default_config(offset);
+    
+    // pin_data_base = DATA0 (pin_data_base + 1 = DATA1)
+    sm_config_set_in_pins(&c, pin_data_base);
+    
+    // Auto-push after 32 bits (16 pixels)
+    sm_config_set_in_shift(&c, false, true, 32);
+    
+    // Connect pin_clock (CL2)
+    pio_gpio_init(pio, pin_clock);
+    pio_gpio_init(pio, pin_data_base);
+    pio_gpio_init(pio, pin_data_base + 1);
+    
+    pio_sm_init(pio, sm, offset, &c);
+    pio_sm_set_enabled(pio, sm, true);
+}
+%}
