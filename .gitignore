@@ -1,0 +1,137 @@
+# ==========================================
+# Operating System & Filesystem Artifacts
+# ==========================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon\r\r
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encrypt
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# ==========================================
+# AI Agents, Assistants & LLM Tooling
+# ==========================================
+# Antigravity / Gemini
+.gemini/
+.antigravity/
+
+# Claude / Anthropic
+.claude/
+.claude-review/
+
+# OpenAI / ChatGPT / Codex / Operator
+.openai/
+.chatgpt/
+
+# Cursor
+.cursor/
+.cursorrules.local
+
+# GitHub Copilot
+.copilot/
+
+# Aider & other coding assistants
+.aider*
+.aider.chat.history.md
+.aider.tags.cache.v3
+
+# General agent scratch, logs, and artifacts
+*.agent/
+agent-scratch/
+agent-logs/
+agent-artifacts/
+*scratch*pad*
+
+# ==========================================
+# Editors & IDEs
+# ==========================================
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains
+.idea/
+*.iws
+*.iml
+
+# Vim / Emacs
+*.swp
+*.swo
+*~
+.#*
+\#*#
+
+# ==========================================
+# Environment, Secrets & Local Overrides
+# ==========================================
+.env
+.env.local
+.env.*.local
+*.local
+*.secret
+*.pem
+*.key
+
+# ==========================================
+# Hardware, CAD & PCB (KiCad / EDA Artifacts)
+# ==========================================
+# KiCad temp & backup files
+*.kicad_pcb-bak
+*.kicad_prl
+*.kicad_sch-bak
+*.sch-bak
+*.bak
+*-bak
+*.bck
+*.kicad_wks-bak
+fp-info-cache
+_autosave-*
+*.autosave
+
+# KiCad output directories / gerber caches
+*-gerbers/
+*.ogrr
+*.drl
+*.gbrjob
+*.gbr
+
+# FreeCAD / CAD backup & lock files
+*.FCStd1
+*.FCStd2
+*.lock
+
+# ==========================================
+# General Build & Generated Artifacts
+# ==========================================
+build/
+dist/
+out/
+tmp/
+temp/
+*.log
+
+# ==========================================
+# Agent Configuration & Project Trash Archive
+# ==========================================
+AGENTS.md
+.trash/
